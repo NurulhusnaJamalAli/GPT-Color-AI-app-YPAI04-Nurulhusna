@@ -1,15 +1,18 @@
-#%%
 # import necessary libraries
 import os
 import json
 import openai
 from IPython.display import HTML, display
 
-#%%
 # set your openAI API key
-openai.api_key = os.getenv("OPENAI_API_KEY")
+from dotenv import dotenv_values
+config = dotenv_values('.env')  
+openai.api_key = config['OPENAI_API_KEY']
 
-#%%
+print(openai.api_key[0])  
+
+# NEVER PUSH STH LIKE THIS TO YOUR GITHUB
+
 def display_color_blocks(colors):
     """
     This function displays a block of colors from a given list of hexcodes.
